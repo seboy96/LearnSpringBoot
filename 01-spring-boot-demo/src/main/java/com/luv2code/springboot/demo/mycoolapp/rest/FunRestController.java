@@ -14,5 +14,4 @@ public class FunRestController {
 	public String sayHello() {
 		return "Hello World! Time on server is " + LocalDateTime.now();
 	}
-
 }
