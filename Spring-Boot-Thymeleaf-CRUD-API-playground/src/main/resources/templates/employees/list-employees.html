@@ -37,10 +37,14 @@
 	
 	
 	<table class="table table-bordered table-striped">
-		<thead class="thead-dark">
+		<thead class="table-primary">
 			<tr>
 				<th>First Name</th>
-				<th>Last Name</th>
+				<th>Last Name 
+					<a th:href="@{/employees}">
+						<img th:src="@{/img/toggle-arrow.png}" width="15" height="15" />
+					</a>
+				</th>
 				<th>Email</th>
 				<th>Action</th>
 			</tr>
