@@ -78,9 +78,7 @@
 	
 	</table>
 	
-	<a th:href="@{/employees/list}" class="btn btn-secondary btn-sm">Return to full table</a>
-	
-	<div th:if = "${totalPages > 1}">
+	<!-- <div th:if = "${totalPages > 1}">
 		<div class = "row col-sm-10">
 			<div class = "pagination col-sm-3">
 				Total Employees: [[${totalItems}]]
@@ -101,7 +99,31 @@
 			</div>
 		</div>
 	
-	</div>
+	</div> -->
+	
+	<hr> 
+	
+	<nav aria-label="Page navigation" class="paging">
+		<ul class="pagination" th:if="${totalPages > 1}">
+			<li class="page-item" th:classappend="${currentPage}==1?'disabled'">
+				<a class="page-link" th:href="@{'/employees/page/' + ${currentPage - 1}}">Previous</a>
+			</li>
+			<th:block th:each="i : ${#numbers.sequence(1, totalPages)}">
+				<li class="page-item" th:classappend="${currentPage}==${i}? 'active'">
+					<a class="page-link" th:href="@{'/employees/page/' + ${i}}">[[${i}]]</a>
+				</li>
+				<!-- <li class="page=item disabled" th:if="${currentPage}==${i}">
+					<a class="page-link" href="#">...</a>
+				</li> -->
+			</th:block>
+			<li class="page-item" th:classappend="${currentPage == totalPages}? 'disabled'">
+				<a class="page-link" th:href="@{'/employees/page/' + ${currentPage + 1}}">Next</a>
+			</li>
+		</ul>
+	</nav>
+	
+	
+	<a th:href="@{/employees/}" class="btn btn-secondary btn-sm">Home</a>
 
 </div>
 </body>
