@@ -106,18 +106,18 @@
 	<nav aria-label="Page navigation" class="paging">
 		<ul class="pagination" th:if="${totalPages > 1}">
 			<li class="page-item" th:classappend="${currentPage}==1?'disabled'">
-				<a class="page-link" th:href="@{'/employees/page/' + ${currentPage - 1}}">Previous</a>
+				<a class="page-link" th:href="@{'/employees/' + ${currentPage - 1}}">Previous</a>
 			</li>
 			<th:block th:each="i : ${#numbers.sequence(1, totalPages)}">
 				<li class="page-item" th:classappend="${currentPage}==${i}? 'active'">
-					<a class="page-link" th:href="@{'/employees/page/' + ${i}}">[[${i}]]</a>
+					<a class="page-link" th:href="@{'/employees/' + ${i}}">[[${i}]]</a>
 				</li>
 				<!-- <li class="page=item disabled" th:if="${currentPage}==${i}">
 					<a class="page-link" href="#">...</a>
 				</li> -->
 			</th:block>
 			<li class="page-item" th:classappend="${currentPage == totalPages}? 'disabled'">
-				<a class="page-link" th:href="@{'/employees/page/' + ${currentPage + 1}}">Next</a>
+				<a class="page-link" th:href="@{'/employees/' + ${currentPage + 1}}">Next</a>
 			</li>
 		</ul>
 	</nav>

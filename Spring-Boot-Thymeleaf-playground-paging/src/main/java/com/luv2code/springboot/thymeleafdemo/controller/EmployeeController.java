@@ -101,7 +101,7 @@ public class EmployeeController {
 		return "employees/list-employees";
 	}
 	
-	@GetMapping("/page/{pageNum}")
+	@GetMapping("/{pageNum}")
 	public String viewPage(@PathVariable(value = "pageNum") int pageNum, Model theModel) {
 		
 		Page<Employee> page = employeeService.listAll(pageNum);
